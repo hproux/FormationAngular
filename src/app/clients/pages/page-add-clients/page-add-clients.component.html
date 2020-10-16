@@ -1,0 +1,8 @@
+<app-template-container [secondaryColor]="true">
+  <app-text-bandeau class="title">
+    <h1>Add client</h1>
+  </app-text-bandeau>
+
+  <app-form-client [init]="item" (submited)="add($event)"></app-form-client>
+</app-template-container>
+

@@ -1,0 +1,23 @@
+.tableau-light{
+  .state-canceled, .state-inactive{
+    background: var(--app-error);
+  }
+
+  .state-option{
+    background: var(--app-primary);
+  }
+
+  .state-confirmed, .state-active{
+    background: var(--app-success);
+  }
+}
+
+
+.secondary{
+  .tableau-light{
+    .state-option{
+      background: var(--app-secondary);
+    }
+  }
+
+}

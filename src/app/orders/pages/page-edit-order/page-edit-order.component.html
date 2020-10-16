@@ -1,0 +1,8 @@
+<app-template-container [secondaryColor]="true">
+  <app-text-bandeau class="title">
+    <h1>Edit order</h1>
+  </app-text-bandeau>
+
+  <app-form-order *ngIf="item" [init]="item" (submited)="edit($event)"></app-form-order>
+
+</app-template-container>

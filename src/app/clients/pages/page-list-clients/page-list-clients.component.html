@@ -1,0 +1,28 @@
+<app-template-full-width [secondaryColor]="true">
+  <app-text-bandeau class="title">
+    <h1>List clients</h1>
+    <h2>All clients</h2>
+  </app-text-bandeau>
+  <app-tableau-dark *ngIf="collection$ | async as collection" [headers]="headers">
+    <!--{{ collection | json }}-->
+    <tr *ngFor="let item of collection">
+      <td (click)="delete(item)"><app-icon-delete></app-icon-delete></td>
+      <td (click)="goToEdit(item)"><app-icon-edit></app-icon-edit></td>
+      <td>{{item.tva}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.comment}}</td>
+      <td>{{item.totalCaHt|total: 1 | currency}}</td>
+      <td [appState]= item.state>
+        <select (change)="changeState(item, $event)">
+          <option *ngFor="let state of states" [value]="state" [selected]="state === item.state">{{ state }}</option>
+        </select>
+      </td>
+    </tr>
+  </app-tableau-dark>
+
+  <app-button label="Add client" route="add"></app-button>
+
+  <app-text-page>
+    <h1>Lorem Ipsum</h1>
+  </app-text-page>
+</app-template-full-width>

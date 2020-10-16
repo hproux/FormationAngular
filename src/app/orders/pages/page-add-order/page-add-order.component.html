@@ -1,0 +1,9 @@
+<app-template-container [secondaryColor]="true">
+  <app-text-bandeau class="title">
+    <h1>Add order</h1>
+  </app-text-bandeau>
+
+  <app-form-order [init]="item" (submited)="add($event)"></app-form-order>
+
+</app-template-container>
+

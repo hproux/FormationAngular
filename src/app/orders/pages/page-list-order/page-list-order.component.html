@@ -1,0 +1,45 @@
+<app-template-full-width [secondaryColor]="true">
+  <app-text-bandeau class="title">
+    <h1>{{ title }}</h1>
+    <h2>All orders</h2>
+  </app-text-bandeau>
+  <app-tableau-dark *ngIf="collection$ | async as collection" [headers]="headers">
+    <!--{{ collection | json }}-->
+    <tr *ngFor="let item of collection">
+      <td>
+        <app-icon-delete (click)="delete(item)"></app-icon-delete>
+        <app-icon-edit (click)="goToEdit(item)"></app-icon-edit>
+        <app-icon-info (click)="info(item)"></app-icon-info>
+    </td>
+      <td>{{item.typePresta}}</td>
+      <td>{{item.client}}</td>
+      <td>{{item.nbJours}}</td>
+      <td>{{item.tjmHt |currency}}</td>
+      <td>{{item.tjmHt|total: item.nbJours | currency}}</td>
+      <td>{{item.tjmHt|total:item.nbJours: item.tva |currency}}</td>
+      <td [appState]= item.state>
+        <select (change)="changeState(item, $event)">
+          <option *ngFor="let state of states" [value]="state" [selected]="state === item.state">{{ state }}</option>
+        </select>
+      </td>
+    </tr>
+  </app-tableau-dark>
+
+  <app-button label="Add order" route="add"></app-button>
+  <app-button label="go to google" href="http://google.fr"></app-button>
+  <app-button label="Open a popup" [action]="true" (clicked)="openPopup()"></app-button>
+
+  <div class="container-fluid">
+    <app-text-page>
+      <h1>Lorem Ipsum</h1>
+      <h2>Lorem Ipsum</h2>
+      <p>Lorem Ipsum</p>
+    </app-text-page>
+  </div>
+
+  <app-vertical-nav [links]="tabLinks"></app-vertical-nav>
+
+  <router-outlet></router-outlet>
+
+</app-template-full-width>
+

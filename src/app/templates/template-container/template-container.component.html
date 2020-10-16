@@ -1,0 +1,10 @@
+<div [ngClass]="{'secondary': secondaryColor}">
+  <div class="bandeau">
+    <ng-content select=".title"></ng-content>
+  </div>
+
+  <div class="container">
+    <ng-content></ng-content>
+  </div>
+
+</div>
