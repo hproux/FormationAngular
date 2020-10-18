@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import '@angular/common/locales/global/fr';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import '@angular/common/locales/global/fr';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    FontAwesomeModule,
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr'},
